@@ -8,7 +8,7 @@ async function searchBook() {
         return;
     }
 
-    result.innerHTML = "<p>검색 중...</p>";
+    result.innerHTML = "<p>🔍 검색 중...</p>";
 
     try {
 
@@ -24,18 +24,43 @@ async function searchBook() {
 
         result.innerHTML = `
             <div class="book">
+
                 <img src="${book.cover}" alt="${book.title}">
+
                 <h2>${book.title}</h2>
+
                 <p>✍ ${book.author}</p>
-                <p>💰 ${book.price}원</p>
-                <a href="${book.link}" target="_blank">알라딘에서 보기</a>
+
+                <p>💰 ${book.price.toLocaleString()}원</p>
+
+                <div class="buttons">
+
+                    <a href="${book.link}" target="_blank" class="aladin">
+                        📕 알라딘
+                    </a>
+
+                    <a href="https://www.yes24.com/Product/Search?query=${encodeURIComponent(book.title)}"
+                       target="_blank"
+                       class="yes24">
+                        📘 예스24
+                    </a>
+
+                    <a href="https://search.kyobobook.co.kr/search?keyword=${encodeURIComponent(book.title)}"
+                       target="_blank"
+                       class="kyobo">
+                        📗 교보문고
+                    </a>
+
+                </div>
+
             </div>
         `;
 
     } catch (error) {
 
-        result.innerHTML = "<p>⚠️ 오류가 발생했습니다.</p>";
         console.error(error);
+
+        result.innerHTML = "<p>⚠️ 오류가 발생했습니다.</p>";
 
     }
 
