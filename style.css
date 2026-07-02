@@ -11,45 +11,51 @@ body{
     justify-content:center;
     align-items:center;
     min-height:100vh;
+    padding:20px;
 }
 
 .container{
-    width:90%;
-    max-width:500px;
+    width:100%;
+    max-width:550px;
     background:#fffef5;
+    border-radius:25px;
     padding:30px;
-    border-radius:20px;
     text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 h1{
-    margin-bottom:20px;
     color:#3d6b35;
+    margin-bottom:20px;
+    font-size:32px;
 }
 
 input{
     width:100%;
-    padding:12px;
+    padding:14px;
     border:2px solid #89c46a;
-    border-radius:12px;
-    outline:none;
+    border-radius:15px;
     font-size:16px;
+    outline:none;
+    margin-bottom:15px;
 }
 
 button{
-    margin-top:15px;
-    padding:12px 25px;
+    width:100%;
+    padding:14px;
     border:none;
-    border-radius:12px;
+    border-radius:15px;
     background:#6ecb63;
     color:white;
-    font-size:16px;
+    font-size:18px;
+    font-weight:bold;
     cursor:pointer;
+    transition:.2s;
 }
 
 button:hover{
     background:#57b84d;
+    transform:scale(1.02);
 }
 
 #result{
@@ -58,49 +64,41 @@ button:hover{
 
 .book{
     background:#f5ffe8;
-    border-radius:15px;
-    padding:15px;
+    border-radius:20px;
+    padding:20px;
 }
 
 .book img{
-    width:140px;
-    border-radius:10px;
-    margin-bottom:10px;
+    width:180px;
+    border-radius:15px;
+    margin-bottom:15px;
 }
 
 .book h2{
-    font-size:20px;
-    margin-bottom:8px;
+    color:#2f4f2f;
+    margin-bottom:10px;
 }
 
 .book p{
-    margin:5px 0;
+    margin:8px 0;
+    font-size:17px;
 }
 
-.book a{
-    display:inline-block;
-    margin-top:10px;
-    text-decoration:none;
-    color:white;
-    background:#4caf50;
-    padding:8px 15px;
-    border-radius:10px;
-}
 .buttons{
-    margin-top:15px;
     display:flex;
     justify-content:center;
     gap:10px;
     flex-wrap:wrap;
+    margin-top:20px;
 }
 
 .buttons a{
     text-decoration:none;
     color:white;
-    padding:10px 18px;
+    padding:12px 18px;
     border-radius:12px;
     font-weight:bold;
-    transition:0.2s;
+    transition:.2s;
 }
 
 .buttons a:hover{
