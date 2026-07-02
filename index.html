@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌿 북파인더</title>
 
-  <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 북파인더</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<div class="sky">
-    ☁️ ☁️
-</div>
+<div class="grass"></div>
 
 <div class="container">
 
-    <div class="logo">
-        🌳
+    <div class="leaf">
+        🍃
     </div>
 
-    <h1>북파인더</h1>
+    <h1>📚 북파인더</h1>
 
     <p class="subtitle">
-        읽고 싶은 책을 찾아보세요 📚
+        오늘 읽고 싶은 책을 찾아보자!
     </p>
 
-    <input
-        id="searchInput"
-        placeholder="책 제목을 입력하세요">
+    <div class="search-box">
 
-    <button onclick="searchBook()">
-        🔍 책 찾기
-    </button>
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="책 제목을 입력하세요">
+
+        <button onclick="searchBook()">
+            🔍 찾기
+        </button>
+
+    </div>
 
     <div id="result"></div>
 
@@ -40,12 +50,12 @@
 
 <footer>
 
-🍀 made by Rabin 🍀
+🌳 made by Rabin 🌳
 
 </footer>
 
 <script src="script.js"></script>
 
 </body>
-</html>
 
+</html>
