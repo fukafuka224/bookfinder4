@@ -1,41 +1,46 @@
-const input = document.getElementById("searchInput");
+let map;
+let places;
 
-input.addEventListener("keydown", function(e){
-    if(e.key === "Enter"){
-        searchBook();
-    }
-});
+window.onload = function () {
 
-async function searchBook(){
+    map = new kakao.maps.Map(document.getElementById('map'), {
+        center: new kakao.maps.LatLng(37.5665, 126.9780),
+        level: 5
+    });
 
-    const keyword = input.value.trim();
+    places = new kakao.maps.services.Places();
+};
+
+async function searchAll() {
+
+    const keyword = document.getElementById("searchInput").value;
+    const region = document.getElementById("regionInput").value;
     const result = document.getElementById("result");
 
-    if(keyword===""){
-        result.innerHTML="<p>📚 책 제목을 입력해 주세요!</p>";
+    if (!keyword || !region) {
+        result.innerHTML = "<p>📚 책과 지역을 모두 입력해줘!</p>";
         return;
     }
 
-    result.innerHTML="<p>🌼 책을 찾는 중...</p>";
+    result.innerHTML = "<p>🌿 검색 중...</p>";
 
-    try{
+    // 1. 책 검색 (알라딘 API)
+    try {
 
-        const response=await fetch(`/api/search?q=${encodeURIComponent(keyword)}`);
-        const data=await response.json();
+        const res = await fetch(`/api/search?q=${encodeURIComponent(keyword)}`);
+        const data = await res.json();
 
-        if(!data.items || data.items.length===0){
-            result.innerHTML="<p>😥 검색 결과가 없어요.</p>";
+        if (!data.items || data.items.length === 0) {
+            result.innerHTML = "<p>😥 책을 찾을 수 없어요</p>";
             return;
         }
 
-        let html="";
+        const book = data.items[0];
 
-        data.items.forEach(book=>{
-
-            html+=`
+        let html = `
             <div class="book">
 
-                <img src="${book.cover}" alt="${book.title}">
+                <img src="${book.cover}">
 
                 <h2>${book.title}</h2>
 
@@ -45,40 +50,55 @@ async function searchBook(){
 
                 <div class="buttons">
 
-                    <a class="aladin"
-                       href="${book.link}"
-                       target="_blank">
-                       📕 알라딘
-                    </a>
+                    <a class="aladin" href="${book.link}" target="_blank">📕 알라딘</a>
 
-                    <a class="yes24"
-                       href="https://www.yes24.com/Product/Search?query=${encodeURIComponent(book.title)}"
-                       target="_blank">
-                       📘 예스24
-                    </a>
+                    <a class="yes24" href="https://www.yes24.com/Product/Search?query=${keyword}" target="_blank">📘 예스24</a>
 
-                    <a class="kyobo"
-                       href="https://search.kyobobook.co.kr/search?keyword=${encodeURIComponent(book.title)}"
-                       target="_blank">
-                       📗 교보문고
-                    </a>
+                    <a class="kyobo" href="https://search.kyobobook.co.kr/search?keyword=${keyword}" target="_blank">📗 교보문고</a>
 
                 </div>
 
             </div>
-            <br>
-            `;
+        `;
 
-        });
+        result.innerHTML = html;
 
-        result.innerHTML=html;
-
-    }catch(err){
-
-        console.error(err);
-
-        result.innerHTML="<p>⚠️ 오류가 발생했어요.</p>";
-
+    } catch (err) {
+        result.innerHTML = "<p>⚠️ 책 검색 오류</p>";
+        return;
     }
 
+    // 2. 지역 기반 서점 검색 (카카오 지도 API)
+
+    places.keywordSearch(`${region} 서점`, function (data, status) {
+
+        if (status === kakao.maps.services.Status.OK) {
+
+            displayPlaces(data);
+
+        }
+
+    });
+
+}
+
+function displayPlaces(placesData) {
+
+    const bounds = new kakao.maps.LatLngBounds();
+
+    for (let i = 0; i < placesData.length; i++) {
+
+        const place = placesData[i];
+
+        const latLng = new kakao.maps.LatLng(place.y, place.x);
+
+        const marker = new kakao.maps.Marker({
+            map: map,
+            position: latLng
+        });
+
+        bounds.extend(latLng);
+    }
+
+    map.setBounds(bounds);
 }
