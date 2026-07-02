@@ -2,187 +2,125 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:"Gaegu",cursive;
 }
 
 body{
-    font-family:"Gaegu",cursive;
-    background:linear-gradient(#b8ec9b,#dff7c8);
+    background:linear-gradient(#b7e9a1,#e8f7d9);
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:30px;
-    overflow-x:hidden;
-}
-
-.grass{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:120px;
-    background:linear-gradient(#79c85d,#5bb145);
-    z-index:-1;
+    padding:20px;
 }
 
 .container{
     width:100%;
     max-width:650px;
-    background:#fffdf4;
-    border-radius:35px;
-    padding:35px;
+    background:#fffdf5;
+    border-radius:30px;
+    padding:30px;
     text-align:center;
-    border:8px solid #8fd06b;
+    border:6px solid #86c96b;
     box-shadow:0 15px 30px rgba(0,0,0,.15);
 }
 
-.leaf{
-    font-size:65px;
-    animation:float 2.5s ease-in-out infinite;
-}
-
 h1{
-    font-size:48px;
-    color:#4d7c39;
-    margin-top:10px;
+    font-size:40px;
+    color:#3f6f2f;
 }
 
-.subtitle{
-    color:#6b6b6b;
-    font-size:22px;
-    margin:15px 0 25px;
-}
-
-.search-box{
-    display:flex;
-    gap:10px;
-    margin-bottom:25px;
+p{
+    color:#666;
+    margin-bottom:15px;
 }
 
 input{
-    flex:1;
-    padding:15px;
+    width:100%;
+    padding:14px;
+    margin:6px 0;
     border:none;
-    border-radius:18px;
-    background:#eef8e8;
-    font-size:18px;
+    border-radius:15px;
+    background:#eef9e6;
+    font-size:16px;
     outline:none;
 }
 
-input:focus{
-    box-shadow:0 0 0 4px #bce5a8;
-}
-
 button{
-    padding:15px 22px;
+    width:100%;
+    padding:14px;
+    margin-top:10px;
     border:none;
-    border-radius:18px;
-    background:#6dbf4a;
+    border-radius:15px;
+    background:#6ecb4f;
     color:white;
     font-size:18px;
+    font-weight:bold;
     cursor:pointer;
-    transition:.25s;
+    transition:.2s;
 }
 
 button:hover{
-    transform:translateY(-3px);
-    background:#58a53a;
+    transform:scale(1.03);
+    background:#5db640;
 }
 
 #result{
     margin-top:20px;
 }
 
+/* 📚 책 카드 */
 .book{
-    background:#f7fff0;
-    border:3px dashed #a6d98d;
-    border-radius:25px;
-    padding:25px;
+    background:#f6fff0;
+    border-radius:20px;
+    padding:20px;
+    margin-top:15px;
+    border:3px dashed #9ad97b;
 }
 
 .book img{
-    width:190px;
-    border-radius:18px;
-    margin-bottom:15px;
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    width:160px;
+    border-radius:15px;
+    margin-bottom:10px;
 }
 
 .book h2{
-    color:#456b31;
-    font-size:30px;
+    color:#2f5d21;
     margin-bottom:10px;
 }
 
 .book p{
-    font-size:20px;
-    margin:8px 0;
+    margin:5px 0;
 }
 
+/* 📍 버튼 */
 .buttons{
     display:flex;
     justify-content:center;
-    gap:12px;
+    gap:10px;
     flex-wrap:wrap;
-    margin-top:20px;
+    margin-top:15px;
 }
 
 .buttons a{
     text-decoration:none;
     color:white;
-    padding:12px 18px;
-    border-radius:15px;
-    font-size:18px;
+    padding:10px 15px;
+    border-radius:12px;
     font-weight:bold;
     transition:.2s;
 }
 
 .buttons a:hover{
-    transform:scale(1.08);
+    transform:scale(1.05);
 }
 
-.aladin{
-    background:#2d7ff9;
-}
+.aladin{background:#2d7ff9;}
+.yes24{background:#ff7a3d;}
+.kyobo{background:#3dbb6a}
 
-.yes24{
-    background:#ff7f3f;
-}
-
-.kyobo{
-    background:#39b96c;
-}
-
-footer{
-    position:fixed;
-    bottom:15px;
-    width:100%;
-    text-align:center;
-    color:#456b31;
-    font-size:20px;
-}
-
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0);}
-}
-
-@media(max-width:600px){
-
-.search-box{
-    flex-direction:column;
-}
-
-button{
-    width:100%;
-}
-
-.book img{
-    width:150px;
-}
-
-h1{
-    font-size:38px;
-}
-
+/* 🗺️ 지도 */
+#map{
+    border-radius:20px;
+    margin-top:20px;
 }
