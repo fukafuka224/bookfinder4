@@ -6,76 +6,97 @@
 }
 
 body{
-    background:#b9e7a3;
+    background:linear-gradient(#9edb88,#c8efb3);
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
-    padding:20px;
+    padding:30px;
 }
 
 .container{
     width:100%;
-    max-width:550px;
-    background:#fffef5;
-    border-radius:25px;
-    padding:30px;
+    max-width:600px;
+    background:#fffdf6;
+    border:8px solid #8fcb6b;
+    border-radius:35px;
+    padding:35px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    box-shadow:0 15px 30px rgba(0,0,0,.18);
 }
 
 h1{
-    color:#3d6b35;
-    margin-bottom:20px;
-    font-size:32px;
+    font-size:38px;
+    color:#4b7f34;
+    margin-bottom:15px;
+}
+
+h1::before{
+    content:"🌳 ";
+}
+
+h1::after{
+    content:" 📚";
+}
+
+p{
+    color:#666;
 }
 
 input{
     width:100%;
-    padding:14px;
-    border:2px solid #89c46a;
-    border-radius:15px;
-    font-size:16px;
+    padding:16px;
+    border:none;
+    border-radius:18px;
+    background:#edf8e4;
+    font-size:17px;
+    margin-top:20px;
     outline:none;
-    margin-bottom:15px;
+}
+
+input:focus{
+    box-shadow:0 0 0 4px #bfe9a8;
 }
 
 button{
     width:100%;
-    padding:14px;
+    margin-top:15px;
+    padding:16px;
     border:none;
-    border-radius:15px;
-    background:#6ecb63;
+    border-radius:18px;
+    background:#6dbf4a;
     color:white;
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
-    transition:.2s;
+    transition:.25s;
 }
 
 button:hover{
-    background:#57b84d;
-    transform:scale(1.02);
+    transform:translateY(-3px);
+    background:#5aaa3d;
 }
 
 #result{
-    margin-top:25px;
+    margin-top:30px;
 }
 
 .book{
-    background:#f5ffe8;
-    border-radius:20px;
+    background:#f7fff0;
+    border-radius:25px;
     padding:20px;
+    border:3px dashed #9fd47b;
 }
 
 .book img{
     width:180px;
-    border-radius:15px;
+    border-radius:20px;
     margin-bottom:15px;
+    box-shadow:0 8px 15px rgba(0,0,0,.15);
 }
 
 .book h2{
-    color:#2f4f2f;
+    color:#456b31;
     margin-bottom:10px;
 }
 
@@ -96,23 +117,32 @@ button:hover{
     text-decoration:none;
     color:white;
     padding:12px 18px;
-    border-radius:12px;
+    border-radius:15px;
     font-weight:bold;
     transition:.2s;
 }
 
 .buttons a:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
 }
 
 .aladin{
-    background:#2b7de9;
+    background:#4f8df5;
 }
 
 .yes24{
-    background:#ff6b35;
+    background:#ff8848;
 }
 
 .kyobo{
-    background:#3cb371;
+    background:#49b96f;
+}
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#87c36a;
+    border-radius:20px;
 }
